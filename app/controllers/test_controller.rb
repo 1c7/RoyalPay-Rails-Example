@@ -5,21 +5,20 @@ class TestController < ApplicationController
   
   def index
     ######### SECRET ##########
-    # DO NOT LEAK, VERY IMPORTANT
+    # 请填入 RoyalPay 的 partner code 和 credential code 到这里
     royalpay_partner_code = ''
     royalpay_credential_code = ''
     ######### SECRET ##########
     
-    order_id = 'testonly5678-1'
+    order_id = 'testonly5678-1' # 商户订单号
     base_URL = "https://mpay.royalpay.com.au/api/v1.0/gateway/partners/#{royalpay_partner_code}/orders/#{order_id}"
     
-    # 支付所需参数
+    # 支付所需参数（会以 JSON 格式发送过去）
     payload = {
       description: 'haha',
-      price: 1,
-      currency: 'AUD',
-      channel: 'Wechat',
-      operator: 'Operator A',
+      price: 1,          # 1分
+      currency: 'AUD',   # 澳元
+      channel: 'Wechat', # 微信
     }
     
     # 生成签名
@@ -27,7 +26,7 @@ class TestController < ApplicationController
     nonce_str = SecureRandom.uuid.tr('-', '') # 长度 32 位
     sign = RoyalPay::sign(time, nonce_str, royalpay_partner_code, royalpay_credential_code)
     
-    # 把必要参数拼到 URL 里
+    # 把签名拼到 URL 里（文档要求这么做的）
     params = {
       time: time,
       nonce_str: nonce_str,
