@@ -1,4 +1,4 @@
-## RoyalPay - Ruby on Rails 参考代码(只实现了二维码扫码支付)
+## RoyalPay - Ruby on Rails 代码 (只实现了二维码扫码支付)
 
 ### Royalpay 是什么
 一家支付商，更多介绍在：https://www.royalpay.com.au/   
@@ -11,13 +11,13 @@
 ### 如何使用
 这里只有2个文件，都在 app/ 目录里，你看看就明白了  <br/>
 
-`app/controllers/test_controller.rb`    
-`app/services/royalpay_service.rb`     
+[app/controllers/test_controller.rb](https://github.com/1c7/RoyalPay-Rails-Example/blob/master/app/controllers/test_controller.rb)       
+[app/services/royalpay_service.rb](https://github.com/1c7/RoyalPay-Rails-Example/blob/master/app/services/royalpay_service.rb)  
 
-因为代码就几十行，所以我就没有做成 gem, 实在没必要   
+因为代码就几十行，所以就没有做成 gem, 没必要  <br/>
+这里保留了目录结构，让你知道该把文件放哪里（当然你也可以自己安排放哪里，这里仅供参考）
 
 ### 缘由
-最近(2018年3月)做了 RoyalPay 的支付整合 <br/>
-是一个 Rails 4 的电商项目 <br/>
-这个项目只需要用到 RoyalPay 里的二维码扫码支付（微信和支付宝) <br/>
-做完之后我想着把代码开源出来方便其他 Rails 程序员，所以有了这个库 <br/>
+最近(2018年3月)做了 RoyalPay 的支付，整合到一个 Rails 4 的电商项目里 <br/>
+只需要用到 RoyalPay 里的二维码扫码支付（微信和支付宝) <br/>
+做完之后我想着把代码开源出来，方便其他 Rails 程序员，所以有了这个库 <br/>
