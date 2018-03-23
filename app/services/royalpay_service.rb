@@ -1,8 +1,10 @@
-# RoyalPay  https://royalpay.com.au/
-# 这里是 RoyalPay 的核心代码
-# 包括：发请求获得付款二维码（微信/支付宝），验证支付成功时 RoyalPay notify_url 的签名
 module RoyalPay
   module_function
+  
+  # 这里有3个方法可用：
+  # RoyalPay::create_qr_code_payment()  创建二维码支付订单，返回的数据里包含了二维码，可直接放到 <img> 中使用
+  # RoyalPay::sign()                    发请求时构造签名
+  # RoyalPay::verify_sign()             收到 RoyalPay notify_url 的 POST 请求时，验证签名
 
   # 创建QRCode支付单
   # https://mpay.royalpay.com.au/docs/cn/#api-QRCode-NewQRCode
